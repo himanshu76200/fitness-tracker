@@ -52,8 +52,48 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const [foods, setFoods] = useState([
+    {
+      id: "1",
+      name: "Chicken Biryani",
+      protein: "250",
+      carbs: "130",
+      fat: "200",
+    },
+    {
+      id: "2",
+      name: "Butter Chicken",
+      protein: "250",
+      carbs: "130",
+      fat: "200",
+    },
+    {
+      id: "3",
+      name: "Shahi Panner",
+      protein: "250",
+      carbs: "130",
+      fat: "200",
+    },
+    {
+      id: "4",
+      name: "Salad",
+      protein: "250",
+      carbs: "130",
+      fat: "200",
+    },
+    {
+      id: "5",
+      name: "Fish Curry",
+      protein: "250",
+      carbs: "130",
+      fat: "200",
+    },
+  ]);
+
   return (
-    <AuthContext.Provider value={{ user, error, register, login, logout }}>
+    <AuthContext.Provider
+      value={({ user, error, register, login, logout }, [foods, setFoods])}
+    >
       {children}
     </AuthContext.Provider>
   );

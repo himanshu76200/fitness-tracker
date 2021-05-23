@@ -45,7 +45,7 @@ export default function FoodPage() {
         <Layout>
           <div className={styles.food}>
             <div className={styles.controls}>
-              <Link href={`/foods/${food.id}`}>
+              <Link href={`/foods/edit/${food.id}`}>
                 <a>
                   <FaPencilAlt /> Edit Food
                 </a>

@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
     });
   };
   //Logout user
-  const logout = async () => {
+  const logout = () => {
     setUser(null);
     router.push("/foods");
   };

@@ -24,7 +24,7 @@ export default function Header() {
             <>
               <li>
                 <Link href="/foods/add">
-                  <a>Add food items</a>
+                  <a>Add food</a>
                 </Link>
               </li>
               <li>

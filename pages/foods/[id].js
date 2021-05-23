@@ -14,7 +14,7 @@ import { useContext, useEffect, useState } from "react";
 
 export default function FoodPage() {
   const router = useRouter();
-  const { foodItems } = useContext(AuthContext);
+  const { foodItems, user } = useContext(AuthContext);
   const [foods, setFoods] = foodItems;
   const [food, setFood] = useState(null);
   const [calories, setCalories] = useState(null);
@@ -44,16 +44,21 @@ export default function FoodPage() {
       {food ? (
         <Layout>
           <div className={styles.food}>
-            <div className={styles.controls}>
-              <Link href={`/foods/edit/${food.id}`}>
-                <a>
-                  <FaPencilAlt /> Edit Food
-                </a>
-              </Link>
-              <a href="#" className={styles.delete} onClick={deleteFood}>
-                <FaTimes /> Delete Food
-              </a>
-            </div>
+            {user ? (
+              <>
+                <div className={styles.controls}>
+                  <Link href={`/foods/edit/${food.id}`}>
+                    <a>
+                      <FaPencilAlt /> Edit Food
+                    </a>
+                  </Link>
+                  <a href="#" className={styles.delete} onClick={deleteFood}>
+                    <FaTimes /> Delete Food
+                  </a>
+                </div>
+              </>
+            ) : null}
+
             <span></span>
             <h1>{food.name}</h1>
             <ToastContainer />

@@ -18,9 +18,9 @@ export default function EditFoodPage() {
   console.log(foods);
   const currentFood = foods;
   //   const [currentFood, setCurrentFood] = useState(null);
-  //   const foodID = router.query.id;
+  const foodID = router.query.id;
   const [values, setValue] = useState({
-    id: "",
+    id: foodID,
     name: "",
     protein: "",
     carbs: "",
@@ -76,7 +76,7 @@ export default function EditFoodPage() {
       <ToastContainer />
       <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.grid}>
-          <div>
+          {/* <div>
             <label htmlFor="id">Food ID</label>
             <input
               type="number"
@@ -85,7 +85,7 @@ export default function EditFoodPage() {
               value={values.id}
               onChange={handleInputChange}
             />
-          </div>
+          </div> */}
           <div>
             <label htmlFor="name">Food Name</label>
             <input

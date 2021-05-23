@@ -14,7 +14,8 @@ import { useContext, useEffect, useState } from "react";
 
 export default function FoodPage() {
   const router = useRouter();
-  const [foods, setFoods] = useContext(AuthContext);
+  const { foodItems } = useContext(AuthContext);
+  const [foods, setFoods] = foodItems;
   const [food, setFood] = useState(null);
   const [calories, setCalories] = useState(null);
   const id = router.query.id;
@@ -69,7 +70,7 @@ export default function FoodPage() {
             <p>{food.fat}</p>
             <h3>Total Calories:</h3>
             <p>{calories}</p>
-            <Link href="/events">
+            <Link href="/foods">
               <a className={styles.back}>
                 <FaBackward /> GO BACK
               </a>

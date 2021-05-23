@@ -92,7 +92,14 @@ export const AuthProvider = ({ children }) => {
 
   return (
     <AuthContext.Provider
-      value={({ user, error, register, login, logout }, [foods, setFoods])}
+      value={{
+        user,
+        error,
+        register,
+        login,
+        logout,
+        foodItems: [foods, setFoods],
+      }}
     >
       {children}
     </AuthContext.Provider>

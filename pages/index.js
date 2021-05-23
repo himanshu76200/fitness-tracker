@@ -6,7 +6,8 @@ import AuthContext from "@/context/AuthContext";
 import { useContext } from "react";
 
 export default function Home() {
-  const [foods, setFoods] = useContext(AuthContext);
+  const { foodItems } = useContext(AuthContext);
+  const [foods, setFoods] = foodItems;
   console.log(foods);
   return (
     <Layout>
@@ -23,23 +24,3 @@ export default function Home() {
     </Layout>
   );
 }
-
-// runs at build time
-// revalidate foods every 1 second
-// export async function getStaticProps() {
-//   const res = await fetch(`${API_URL}/api/foods`);
-//   const foods = await res.json();
-//   return {
-//     props: { foods: foods.slice(0, 3) },
-//     revalidate: 1,
-//   };
-// }
-
-// runs every time we make a request
-// export async function getServerSideProps() {
-//   const res = await fetch(`${API_URL}/api/foods`);
-//   const foods = await res.json();
-//   return {
-//     props: { foods },
-//   };
-// }
